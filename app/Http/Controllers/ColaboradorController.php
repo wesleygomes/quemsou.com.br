@@ -16,6 +16,12 @@ class ColaboradorController extends Controller
         return view('colaborador.list')->withColaboradores(Colaborador::all());
     }
 
+    public function pesquisa(){
+
+        $rs = DB::table('tb_colaborador')->where('email', '=', 'falecomweslley@gmail.com')->get();
+        return view('index')->withColaborador($rs);
+    }
+
     public function view($id){
         return view('colaborador.view')->with('c', Colaborador::find($id));
     }

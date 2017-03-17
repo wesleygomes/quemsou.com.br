@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'Quem Sou - Colaboradores')
 @section('conteudo')
     <h1>Lista de Colaboradores</h1>
     <table class="table table-striped">

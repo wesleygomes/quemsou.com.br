@@ -27,24 +27,20 @@
 
 <body>
 <div class="container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Colaboradores</a>
+    <div class="pesquisa">
+        <h1>Pesquise sua função<br> na <span>artemsite</span></h1>
+        <form action="">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Pesquise pelo seu e-mail">
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{action('ColaboradorController@listar')}}">Lista</a></li>
-                <li><a href="{{action('ColaboradorController@novo')}}">Novo</a></li>
-            </ul>
-        </div>
-    </nav>
+            <button type="submit" class="btn btn-success btn-lg">Pesquisar</button>
+        </form>
+    </div>
 
-    @yield('conteudo')
-
-    <footer class="footer">
-        <p>&copy; Artemsite - Agência digital</p>
-    </footer>
+    <div class="resultado">
+        Olá {{$c['nome']}} de tal tudo bem?
+    </div>
 </div>
 
 <!-- Scripts -->

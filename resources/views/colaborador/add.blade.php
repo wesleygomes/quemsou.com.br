@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'Quem Sou - Novo Colaborador')
 @section('footer')
     <script type="application/javascript">
         $(function(){
