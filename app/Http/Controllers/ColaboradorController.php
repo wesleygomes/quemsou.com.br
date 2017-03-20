@@ -16,10 +16,17 @@ class ColaboradorController extends Controller
         return view('colaborador.list')->withColaboradores(Colaborador::all());
     }
 
-    public function pesquisa(){
+    public function index(){
+        return view('index');
+    }
 
-        $rs = DB::table('tb_colaborador')->where('email', '=', 'falecomweslley@gmail.com')->get();
-        return view('index')->withColaborador($rs);
+    public function pesquisar(){
+
+        $email = Request::only('email');
+        $result = DB::table('tb_colaborador')->where('email', '=', $email)->get();
+
+        //return $result;
+        return view('index')->with('Result', $result);
     }
 
     public function view($id){
@@ -32,9 +39,6 @@ class ColaboradorController extends Controller
 
     public function add(ColaboradorRequest $request){
         Colaborador::create($request->all());
-
-
-
         return redirect()->action('ColaboradorController@listar')->withInput(Request::only('nome'));
     }
 

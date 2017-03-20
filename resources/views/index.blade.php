@@ -29,18 +29,24 @@
 <div class="container">
     <div class="pesquisa">
         <h1>Pesquise sua função<br> na <span>artemsite</span></h1>
-        <form action="">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <form name="frm" id="frm" method="get" action="/pesquisar/">
             <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Pesquise pelo seu e-mail">
             </div>
-            <button type="submit" class="btn btn-success btn-lg">Pesquisar</button>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
+                <button type="submit" class="btn btn-success btn-lg">Pesquisar</button>
+            </div>
         </form>
     </div>
 
-    <div class="resultado">
-        Olá {{$c['nome']}} de tal tudo bem?
-    </div>
+    @if (!empty($Result))
+        @foreach($Result as $rs)
+            <div class="resultado">
+                Olá {{$rs->nome}} de tal tudo bem?<br/>
+                Huuummm vejo que você é Programador que chique kkkkk
+            </div>
+        @endforeach
+    @endif
 </div>
 
 <!-- Scripts -->
